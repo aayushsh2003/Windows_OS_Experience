@@ -1,0 +1,62 @@
+# Window OS Experience
+
+> A free, browser-based Windows 11 simulator built with React and TypeScript. Full desktop, taskbar, start menu, and 40+ built-in apps — no install required, runs entirely client-side with localStorage persistence.
+
+## About
+
+Window OS Experience recreates the look and feel of Windows 11 in the browser as a Progressive Web App (PWA). It includes window management (drag, resize, snap layouts, minimize, maximize), a Start Menu, taskbar, notification center, quick settings, lock screen, boot animation, command palette (Ctrl+K), and dark/light themes.
+
+## Built-in Apps
+
+### Productivity
+- Notepad, Text Editor, Markdown Notes, Sticky Notes, To-Do List
+- Spreadsheet (with SUM/AVG/MIN/MAX formulas and CSV export)
+- Calendar (month/week/day views), Focus Timer, Clipboard Manager
+- PDF Reader, Whiteboard
+
+### Creative
+- Paint (with undo/redo, shapes, export)
+- Photos, Camera, Video Player, Voice Recorder
+- Code Editor (themes, live preview, command palette)
+
+### Utilities
+- File Explorer (hybrid local + virtual filesystem)
+- Calculator, Unit Converter, Color Picker, Dictionary
+- QR Code Generator, Snipping Tool, Password Vault (XOR-encrypted)
+- Terminal, System Monitor, Task Manager, Settings
+
+### Information
+- Maps (Leaflet-based with routing and weather)
+- Weather, News, Stocks (with sparkline charts), Clock
+
+### Communication
+- Mail, Chat, Contacts, Browser
+
+### Entertainment
+- Music Player, Games (Snake, 2048, Minesweeper, Memory, Tic-Tac-Toe, Typing)
+- Store, About This PC
+
+## Tech Stack
+
+- React 18, Vite 5, TypeScript 5, Tailwind CSS v3
+- Zustand for state management
+- localStorage for persistence (no backend)
+- shadcn/ui components, Leaflet for maps
+- PWA with manifest and offline-ready assets
+
+## Keyboard Shortcuts
+
+- `Win` / `Ctrl+Esc` — Open Start Menu
+- `Ctrl+K` / `Win+K` — Command Palette
+- `Win+L` — Lock screen
+- `Win+D` — Show desktop
+- `Win+Tab` — Task View
+- `Win+Arrow` — Snap windows
+
+## Pages
+
+- [/](/ ): Main desktop OS experience — boot into the simulated Windows 11 environment.
+
+## Links
+
+- Repository / README: see project README.md for full feature list, project structure, and local development setup.

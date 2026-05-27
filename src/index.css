@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 14% 89%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 210 14% 93%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 207 90% 54%;
+    --radius: 0.5rem;
+
+    /* Windows-specific tokens */
+    --win-taskbar: 220 20% 10%;
+    --win-taskbar-foreground: 0 0% 100%;
+    --win-titlebar: 0 0% 98%;
+    --win-titlebar-foreground: 0 0% 20%;
+    --win-titlebar-active: 207 90% 54%;
+    --win-start-bg: 220 15% 12%;
+    --win-start-foreground: 0 0% 95%;
+    --win-hover: 0 0% 100% / 0.08;
+    --win-window-shadow: 0 8px 32px hsl(0 0% 0% / 0.3);
+    --win-glass: 0 0% 100% / 0.72;
+    --win-glass-border: 0 0% 100% / 0.18;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 10%;
+    --foreground: 0 0% 93%;
+    --card: 220 15% 13%;
+    --card-foreground: 0 0% 93%;
+    --popover: 220 15% 13%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 207 90% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 18%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 220 14% 16%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 207 90% 54%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 22%;
+    --input: 220 14% 22%;
+    --ring: 207 90% 54%;
+
+    --win-taskbar: 220 20% 8%;
+    --win-taskbar-foreground: 0 0% 100%;
+    --win-titlebar: 220 15% 13%;
+    --win-titlebar-foreground: 0 0% 90%;
+    --win-titlebar-active: 207 90% 54%;
+    --win-start-bg: 220 20% 8%;
+    --win-start-foreground: 0 0% 95%;
+    --win-hover: 0 0% 100% / 0.06;
+    --win-window-shadow: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --win-glass: 220 15% 12% / 0.85;
+    --win-glass-border: 0 0% 100% / 0.08;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+}
+
+/* Windows 11 Mica / Acrylic glass effect */
+.win-glass {
+  background: hsla(var(--win-glass));
+  backdrop-filter: blur(40px) saturate(200%) contrast(110%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%) contrast(110%);
+  border: 1px solid hsla(var(--win-glass-border));
+  box-shadow: inset 0 1px 0 hsla(0 0% 100% / 0.08);
+}
+
+.win-taskbar-glass {
+  background: hsl(var(--win-taskbar) / 0.7);
+  backdrop-filter: blur(50px) saturate(220%);
+  -webkit-backdrop-filter: blur(50px) saturate(220%);
+  border-top: 1px solid hsla(0 0% 100% / 0.06);
+}
+
+/* Window shadow */
+.win-shadow {
+  box-shadow: var(--win-window-shadow);
+}
+
+/* Scrollbar styling */
+.win-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.win-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.win-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 60%);
+  border-radius: 3px;
+}
+
+/* Desktop icon text shadow */
+.desktop-icon-text {
+  text-shadow: 0 1px 3px hsl(0 0% 0% / 0.7);
+}
+
+/* Start menu animation */
+@keyframes startMenuOpen {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.start-menu-animate {
+  animation: startMenuOpen 0.15s ease-out;
+}
+
+/* Window open animation */
+@keyframes windowOpen {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.window-animate {
+  animation: windowOpen 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Boot screen animations */
+@keyframes winLogoIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes winDotSpin {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Minimize animation */
+@keyframes windowMinimize {
+  to { opacity: 0; transform: scale(0.6) translateY(100px); }
+}
+
+/* Taskbar app tooltip */
+.taskbar-tooltip {
+  animation: fadeIn 0.15s ease-out;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: hsl(var(--muted));
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  cursor: pointer;
+  border: 2px solid hsl(var(--background));
+  box-shadow: 0 1px 3px hsl(0 0% 0% / 0.2);
+}
+
+/* Notification toast slide in */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
