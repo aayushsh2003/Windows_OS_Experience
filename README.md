@@ -1,7 +1,7 @@
 # 🪟 Windows OS Experience
 
 
-![Window OS Preview](./screenshots/preview.png)
+[![Window OS Preview](https://windows-os-experience.vercel.app/preview.png)](https://windows-os-experience.vercel.app/)
 
 ![React](https://img.shields.io/badge/React-18-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
